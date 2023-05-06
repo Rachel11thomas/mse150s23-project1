@@ -1,5 +1,5 @@
 Contains a `README.md’ file that describes: (+5 points)
-o Software dependencies for the project, python 
+o Software dependencies for the project, python and gnu 
 o How to get the code
 o How to run the code
 o An example of how to run the code, and what the user should expect
