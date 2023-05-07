@@ -37,12 +37,42 @@ plt.ylabel('stress (MPa)')
 # the stress-strain data. Plot your line against the data to make 
 # sure it makes sense! Use the slope of this line to calculate and print
 # the Young's modulus (with units!)
-
+x_linear= xdata[start:end]
+y_linear=ydata[start:end]
+fit=np.polyfit(x_linear,y_linear,1)
+youngus_modulus=fit[0]
+plt.plot(x_linear, y_linear)
+plt.plot(x_linear, fit[0]*x_linear+fit[1])
+plt.legend(['data','fit'])
+print('Young's modulus=',youngus_modulus, MPa)
 
 ## Part 4
 # Modify your code to save your plots to a file and see if you can generate
 # plots and Young's moduli for all of the cleaned up files in your data 
 # directory. If you haven't already, this is a good time to add text to 
 # your .gitignore file so you're not committing the figures to your repository.
-
+input_dir= 'raw_data/'
+output_dir='output/'
+if not os.path.exists(output_dir):
+    os.mkdir(output_dir)
+for filename in os.listdir(input_dir):
+    data=np.loadtxt(input_dir+filename,delimiter(',', skiprows=2, dtype=float)
+    xdata=data[:,0]
+    ydata=data[:,1]
+    plt.plot(xdata,ydata)
+    start = ...
+    end = ...
+    xlinear=xdata[start:end]
+    ylinear=ydata[start:end]
+    fit=np.polyfit(x_linear,y_linear,1)
+    youngus_modulus=fit[0]
+    plt.legend(['data','linear fit'])
+    plt.xlabel('strain')
+    plt.ylabel('stress (MPa)')
+    plt.title(stress-strain Curve:'+filename)
+    output_file=output_dir+filename[:-4]+'.png'
+    plt.savefig(output_file)
+    print('young\'s modulus for',filename,'=',youngus_modulus, 'MPa'
+    plt.clf()
+    
 
