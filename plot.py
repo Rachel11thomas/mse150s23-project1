@@ -3,8 +3,8 @@ import numpy as np
 import sys
 
 filename = sys.argv[1]        # Stores ARG1 in filename, as in: $ python plot.py ARG1 ARG2 
-data = np.loadtxt(raw_data)   # Attempts to load filename into local variable data.
-
+data = np.loadtxt(raw_data   # Attempts to load filename into local variable data.
+delimiter= ',', skiprows=2, dtype=float)
 ## Part 0
 # Figure out what arguments to add to the loadtxt function call
 # so that numbers are loaded into the local function 'data'.
@@ -20,7 +20,11 @@ data = np.loadtxt(raw_data)   # Attempts to load filename into local variable da
 # plot raw-data/Sp22_245L_sec-001_tensiletest-pekk_bulk.raw
 # Make sure to include axis labels and units!
 # plt.plot(xdata, ydata, arguments-to-make-plot-pretty)
-
+xdata=data[:,0]
+ydata=data[:,1]
+plt.plot(xdata,ydata)
+plt.xlabel('strain')
+plt.ylabel('stress (MPa)')
 
 ## Part 2
 # Check to see if your code in part 1 will plot all of the files in raw-data/
